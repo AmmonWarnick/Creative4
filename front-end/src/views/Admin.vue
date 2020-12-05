@@ -1,9 +1,7 @@
 <template>
   <div class="admin">
-    <h1>The Admin Page!</h1>
     <div class="heading">
-      <div class="circle">1</div>
-      <h2>Add an Item</h2>
+      <h1>Make an Entry</h1>
     </div>
     <div class="add">
       <div class="form">
@@ -11,18 +9,15 @@
           <input v-model="title" placeholder="Title" />
           <textarea v-model="desc" placeholder="Description" />
         </div>
-        <input type="file" name="photo" @change="fileChanged" />
         <button @click="upload">Upload</button>
       </div>
       <div class="upload" v-if="addItem">
         <h2>{{ addItem.title }}</h2>
         <p>{{ addItem.desc }}</p>
-        <img :src="addItem.path" />
       </div>
     </div>
     <div class="heading">
-      <div class="circle">2</div>
-      <h2>Edit/Delete an Item</h2>
+      <h1>Edit/Delete an Entry</h1>
     </div>
     <div class="edit">
       <div class="form">
@@ -41,7 +36,6 @@
       <div class="upload" v-if="findItem">
         <input v-model="findItem.title" />
         <textarea v-model="findItem.desc"></textarea>
-        <img :src="findItem.path" />
       </div>
       <div class="actions" v-if="findItem">
         <button @click="deleteItem(findItem)">Delete</button>
@@ -85,12 +79,10 @@ export default {
     async upload() {
       try {
         const formData = new FormData();
-        formData.append("photo", this.file, this.file.name);
-        let r1 = await axios.post("/api/photos", formData);
+        formData.append("photo", this.file);
         let r2 = await axios.post("/api/items", {
           title: this.title,
           desc: this.desc,
-          path: r1.data.path,
         });
         this.addItem = r2.data;
       } catch (error) {
@@ -217,4 +209,5 @@ button {
   color: #fff;
 }
 </style>
+
 

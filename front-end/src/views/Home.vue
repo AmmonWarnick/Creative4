@@ -2,9 +2,8 @@
 <div class="home">
   <section class="image-gallery">
     <div class="image" v-for="item in items" :key="item.id">
-      <h2>{{item.title}}</h2>
+      <h1>{{item.title}}</h1>
       <p>{{item.desc}}</p>
-      <img :src="item.path" />
     </div>
   </section>
 </div>
@@ -39,8 +38,9 @@ export default {
 </script>
 
 <style scoped>
-.image h2 {
+h1 {
   font-style: italic;
+  font-size: 15px;
 }
 
 /* Masonry */

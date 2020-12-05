@@ -2,21 +2,19 @@
 <div id="app">
   <div class="header">
     <router-link to="/">
-      <div class="logo">
-        <img src="/ordinary.png">
-      </div>
     </router-link>
-    <div class="title">
-      <h1>Museum of Ordinary Objects</h1>
-    </div>
+    <div class="title"> 
+    <a id="github"  href="http://creative4.ammonwarnick.me/" >Home</a>
+    <h1>My Diary Entries</h1>
+  </div>
   </div>
   <div class="content">
     <router-view />
   </div>
   <div class="footer">
-    <router-link to="/admin">Admin</router-link>
+    <router-link to="/admin">Make an entry here</router-link>
     <br>
-    <a id="github" href="https://github.com/BYU-CS-260-Winter-2020/lab-4-museum-of-ordinary-objects-AmmonWarnick" >Github</a>
+    <a id="github" href="https://github.com/AmmonWarnick/Creative4/tree/master" >Github</a>
   </div>
 </div>
 </template>
@@ -25,9 +23,10 @@
 html {
   box-sizing: border-box;
 }
-
+a{
+  text-align: right;
+}
 body {
-  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   background: #fff;
   padding: 0px;
@@ -38,7 +37,7 @@ body {
 .header {
   display: flex;
   padding: 10px 100px 0px 100px;
-  background-color: #5BDEFF;
+  background-color: #c9827d;
   color: #1C454F;
 }
 
@@ -57,10 +56,10 @@ body {
 
 /* Footer */
 .footer {
-  height: 50px;
+  height: 75px;
   padding: 20px 100px 0px 100px;
   background: #e3e3e3;
-  font-size: 12px;
+  font-size: 25px;
 }
 
 .footer a {
